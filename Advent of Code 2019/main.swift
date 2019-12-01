@@ -8,5 +8,27 @@
 
 import Foundation
 
-print("Hello, World!")
+day01()
 
+
+//let greeting = "Welcome!"
+//// greeting = "asd" compiler error
+//print("\(greeting) World!")
+//
+//var anotherGreeting = "Welcome!"
+//anotherGreeting = "Hello"
+//print("\(anotherGreeting) World!")
+//
+//let xs = [1, 2, 3]
+////xs.append(4) // Let makes the array immutable
+//print(xs)
+//
+//
+//let input = """
+//a
+//s
+//d
+//"""
+//
+//
+//print(input.split(separator: "\n").map { input in input })
