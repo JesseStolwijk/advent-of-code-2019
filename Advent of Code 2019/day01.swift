@@ -8,8 +8,7 @@
 
 import Foundation
 
-
-let input = """
+private let input = """
 143845
 86139
 53043
@@ -114,15 +113,21 @@ let input = """
 
 
 func day01() -> Void {
-    let masses = input.lines().map { line in Int(line) ?? 0 }
+    let masses = input.lines().map { Int($0) ?? 0 }
     
-    let totAmountOfRequiredFuel = masses.map { mass in mass / 3 - 2 }.reduce(0, +)
+    let totAmountOfRequiredFuel = masses.map {
+        calculateAmountOfFuel(mass: $0, totalAmountOfMass: 0)
+    }.reduce(0, +)
     
     print(totAmountOfRequiredFuel)
 }
 
-extension String {
-    func lines() -> [String.SubSequence] {
-        return self.split(separator: "\n")
+private func calculateAmountOfFuel(mass: Int, totalAmountOfMass: Int) -> Int {
+    if mass <= 0 {
+        return totalAmountOfMass
     }
+    
+    let currentMass = mass / 3 - 2
+    return calculateAmountOfFuel(mass: currentMass, totalAmountOfMass: totalAmountOfMass + currentMass)
 }
+

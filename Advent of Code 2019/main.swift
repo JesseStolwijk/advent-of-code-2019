@@ -8,27 +8,27 @@
 
 import Foundation
 
-day01()
+extension String {
+    func lines() -> [String.SubSequence] {
+        return self.split(separator: "\n")
+    }
+}
 
+func measureMillis(codeBlock: ()->()) -> Double {
+    let startTime = CFAbsoluteTimeGetCurrent()
+    
+    codeBlock()
+    
+    let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
+    return Double(timeElapsed)
+}
 
-//let greeting = "Welcome!"
-//// greeting = "asd" compiler error
-//print("\(greeting) World!")
-//
-//var anotherGreeting = "Welcome!"
-//anotherGreeting = "Hello"
-//print("\(anotherGreeting) World!")
-//
-//let xs = [1, 2, 3]
-////xs.append(4) // Let makes the array immutable
-//print(xs)
-//
-//
-//let input = """
-//a
-//s
-//d
-//"""
-//
-//
-//print(input.split(separator: "\n").map { input in input })
+    
+print("Advent of Code 2019")
+
+let duration = measureMillis {
+    day01()
+}
+    
+print("Execution took \(duration) ms")
+
