@@ -127,7 +127,6 @@ private func calculateAmountOfFuel(mass: Int, totalAmountOfMass: Int) -> Int {
         return totalAmountOfMass
     }
     
-    let currentMass = mass / 3 - 2
-    return calculateAmountOfFuel(mass: currentMass, totalAmountOfMass: totalAmountOfMass + currentMass)
+    let amountOfFuelRequired = mass / 3 - 2
+    return calculateAmountOfFuel(mass: amountOfFuelRequired, totalAmountOfMass: totalAmountOfMass + amountOfFuelRequired)
 }
-
